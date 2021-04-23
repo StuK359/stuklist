@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <title style="text-align: center;">Wish List Items</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Wish List Items</h1>
+    {% if todos|length == 0 %}
+        <p style="text-align: center;">No Wish List Items Exist</p>
+        <hr>
+        <a href="{% url 'add_todo' %}">Add Todo</a>
+    {% else %}
+        <ul>
+            {% for todo in todos %}
+                <li>{{todo.item}} - <a href="{% url 'delete_todo' todo.id %}">X</a> </li>
+            {%endfor%}
+        </ul>
+    {%endif%}
+</body>
+</html>
