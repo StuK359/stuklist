@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-    <title style="text-align: center;">Wish List Items</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-G9DpmGxRIF6tpgbrkZVcZDeIomEU22LgTguPAI739bbKytjPE/kHTK5YxjJAAEXC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Wish List Items</title>
 </head>
 <body>
     <h1 style="text-align: center;">Wish List Items</h1>
-    {% if todos|length == 0 %}
+    {% if wishlists|length == 0 %}
         <p style="text-align: center;">No Wish List Items Exist</p>
         <hr>
-        <a href="{% url 'add_todo' %}">Add Todo</a>
+        <div><button href="{% url 'add_wishlist' %}" style="text-align: center;">Add A Wish Item</button></div>
     {% else %}
         <ul>
-            {% for todo in todos %}
-                <li>{{todo.item}} - <a href="{% url 'delete_todo' todo.id %}">X</a> </li>
+            {% for wishlist in wishlists %}
+                <li>{{wishlist.item}} - <a href="{% url 'delete_wishlist' wishlist.id %}">X</a> </li>
             {%endfor%}
         </ul>
     {%endif%}

@@ -2,8 +2,8 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
-class Todo(models.Model):
-    item = models.CharField(max_length = 50)
+class Wishlist(models.Model):
+    description = models.TextField(max_length=4096)
 
     def __str__(self):
         return self.item
