@@ -13,12 +13,13 @@
     {% if wishlists|length == 0 %}
         <p style="text-align: center;">No Wish List Items Exist</p>
         <hr>
-        <div><button href="{% url 'add_wishlist' %}" style="text-align: center;">Add A Wish Item</button></div>
+        <div><a class="pure-button" href="{% url 'add_wishlist' %}" style="text-align: center;">Add A Wish Item</a></div>
     {% else %}
         <ul>
             {% for wishlist in wishlists %}
-                <li>{{wishlist.item}} - <a href="{% url 'delete_wishlist' wishlist.id %}">X</a> </li>
+                <li>{{wishlist.description}} - <a href="{% url 'delete_wishlist' wishlist.id %}">X</a> </li>
             {%endfor%}
+            <div><a class="pure-button" href="{% url 'add_wishlist' %}" style="text-align: center;">Add A Wish Item</a></div>
         </ul>
     {%endif%}
 </body>
